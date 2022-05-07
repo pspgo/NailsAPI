@@ -82,11 +82,18 @@ namespace NailsAPI
             services.AddScoped<IUserContextService, UserContextService>();
             services.AddHttpContextAccessor();//dzieki temu mozna wstrzykiwac do UserContextService referencje do obiektu IHttpContextAccessor
             services.AddSwaggerGen();
+            services.AddCors( options =>
+                options.AddPolicy("FrontEndClient", builder =>
+                    builder.AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .WithOrigins(Configuration["AllowedOrigins"])) //allowanyorigin
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, NailsSeeder seeder)
         {
+            app.UseCors("FrontEndClient");
             seeder.Seed();
             if (env.IsDevelopment())
             {
