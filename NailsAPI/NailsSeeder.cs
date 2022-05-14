@@ -24,12 +24,12 @@ namespace NailsAPI
                     _dbContext.SaveChanges();
                 }
 
-                if(!_dbContext.Appointments.Any())
-                {
-                    var appointments = GetAppointments();
-                    _dbContext.Appointments.AddRange(appointments);
-                    _dbContext.SaveChanges();
-                }
+                //if(!_dbContext.Appointments.Any())
+                //{
+                //    var appointments = GetAppointments();
+                //    _dbContext.Appointments.AddRange(appointments);
+                //    _dbContext.SaveChanges();
+                //}
             }
         }
 
@@ -53,42 +53,6 @@ namespace NailsAPI
 
             return roles;
         }
-
-        private IEnumerable<Appointment> GetAppointments()
-        {
-            var appointment = new List<Appointment>()
-            {
-                new Appointment()
-                {
-                    MeetingDate = DateTime.Parse("16/01/2022"),
-                    ProcedureId = 3
-                }
-            };
-            return appointment;
-        }
-
-        //private IEnumerable<Procedure> GetAppointments()
-        //{
-        //    var appointments = new List<Appointment>()
-        //    {
-        //        new Appointment()
-        //        {
-        //            MeetingDate = DateTime.Parse("16/01/2022"),
-        //            Procedures = new List<Procedure>()
-        //            {
-        //                new Procedure()
-        //                {
-        //                    ProcedureId = 3
-        //                },
-        //                new Procedure()
-        //                {
-        //                    ProcedureId = 4
-        //                },
-        //            }
-        //        }
-        //    };
-        //    return (IEnumerable<Procedure>)appointments;
-        //}
 
         //private IEnumerable<Procedure> GetProcedures()
         //{

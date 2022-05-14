@@ -9,7 +9,8 @@ namespace NailsAPI.Entities
     public class NailsDbContext : DbContext
     {
         private string _connectionString =
-            "Server=(localdb)\\mssqllocaldb;Database=NailsDb;Trusted_Connection=True;";
+            "Server=localhost;Database=NailsDb;Trusted_Connection=True;";
+            //"Server=(localdb)\\mssqllocaldb;Database=NailsDb;Trusted_Connection=True;";
 
         public DbSet<Procedure> Procedures { get; set; }
         public DbSet<Appointment> Appointments { get; set; }

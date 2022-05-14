@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NailsAPI.Entities;
 using NailsAPI.Models;
@@ -36,6 +37,7 @@ namespace NailsAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult Post([FromBody] CreateProcedureDto dto)
         {
             var newProcedureId = _procedureService.Create(dto);

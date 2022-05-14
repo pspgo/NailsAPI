@@ -18,7 +18,9 @@ namespace NailsAPI
                 .ForMember(m => m.EstimatedTime, c => c.MapFrom(s => s.Procedure.EstimatedTime))
                 .ForMember(m => m.Price, c => c.MapFrom(s => s.Procedure.Price));
 
-            CreateMap<CreateAppointmentDto, Appointment>();
+            CreateMap<CreateAppointmentDto, Appointment>()
+                .ForMember(m => m.MeetingDate, c => c.MapFrom(s => 
+                    DateTime.ParseExact(s.MeetingDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)));
 
             CreateMap<Procedure, ProcedureDto>();
 
