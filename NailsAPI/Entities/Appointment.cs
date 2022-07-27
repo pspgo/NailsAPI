@@ -14,7 +14,7 @@ namespace NailsAPI.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public int PhoneNr { get; set; }
+        public string PhoneNr { get; set; }
         public int? CreatedById { get; set; }
         public virtual User CreatedBy { get; set; }
     }

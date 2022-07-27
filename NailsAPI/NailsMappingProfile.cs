@@ -20,7 +20,7 @@ namespace NailsAPI
 
             CreateMap<CreateAppointmentDto, Appointment>()
                 .ForMember(m => m.MeetingDate, c => c.MapFrom(s => 
-                    DateTime.ParseExact(s.MeetingDate, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture)));
+                    DateTime.ParseExact(s.MeetingDate, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture)));
 
             CreateMap<Procedure, ProcedureDto>();
 
